@@ -6,21 +6,11 @@ public class Max {
     }
 
     public static int max(int left, int right, int third) {
-        return left >= right && left >= third ? left : (right >= left && right >= third ? right : third);
+        return max(max(left, right), third);
     }
 
     public static int max(int left, int right, int third, int fourth) {
-        int result;
-        if (left >= right && left >= third && left >= fourth) {
-            result = left;
-        } else if (right >= third && right >= fourth) {
-            result = right;
-        } else if (third >= fourth) {
-            result = third;
-        } else {
-            result = fourth;
-        }
-        return result;
+        return max(max(left, right), max(third, fourth));
     }
 
     public static void main(String[] args) {
